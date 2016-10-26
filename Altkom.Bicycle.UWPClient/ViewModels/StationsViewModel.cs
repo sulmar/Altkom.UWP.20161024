@@ -39,7 +39,10 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             Stations = StationsService.GetStations();
         }
 
+        #region DisplayMapCommand
+
         private ICommand _DisplayMapCommand;
+
         public ICommand DisplayMapCommand
         {
             get
@@ -53,6 +56,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             }
         }
 
+        #endregion
 
         public void DisplayMap()
         {
