@@ -1,11 +1,13 @@
 ﻿using Altkom.Bicycle.Interfaces;
 using Altkom.Bicycle.MockServices;
 using Altkom.Bicycle.Models;
+using Altkom.Bicycle.UWPClient.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
@@ -29,12 +31,40 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
             Load();
 
-            SelectedStation = Stations.Last();
+            // SelectedStation = Stations.Last();
         }
 
         public override void Load()
         {
             Stations = StationsService.GetStations();
         }
+
+        private ICommand _DisplayMapCommand;
+        public ICommand DisplayMapCommand
+        {
+            get
+            {
+                if (_DisplayMapCommand == null)
+                {
+                    _DisplayMapCommand = new RelayCommand(DisplayMap, CanDisplayMap);
+                }
+
+                return _DisplayMapCommand;
+            }
+        }
+
+
+        public void DisplayMap()
+        {
+            // TODO: Display map
+        }
+
+        public bool CanDisplayMap()
+        {
+            return true;
+
+            // return SelectedStation != null;
+        }
+            
     }
 }
