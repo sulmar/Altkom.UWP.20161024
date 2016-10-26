@@ -15,7 +15,21 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
     {
         public IList<Station> Stations { get; set; }
 
-        public Station SelectedStation { get; set; }
+        #region SelectedStation
+
+        private Station _SelectedStation;
+        public Station SelectedStation
+        {
+            get { return _SelectedStation; }
+            set
+            {
+                _SelectedStation = value;                
+
+                DisplayMapCommand.OnCanExecuteChanged();
+            }
+        }
+
+        #endregion
 
         private readonly IStationsService StationsService;
 
@@ -41,9 +55,9 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         #region DisplayMapCommand
 
-        private ICommand _DisplayMapCommand;
+        private IRelayCommand _DisplayMapCommand;
 
-        public ICommand DisplayMapCommand
+        public IRelayCommand DisplayMapCommand
         {
             get
             {
@@ -65,9 +79,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         public bool CanDisplayMap()
         {
-            return true;
-
-            // return SelectedStation != null;
+           return SelectedStation != null;
         }
             
     }

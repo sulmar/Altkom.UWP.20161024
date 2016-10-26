@@ -7,7 +7,12 @@ using System.Windows.Input;
 
 namespace Altkom.Bicycle.UWPClient.Commands
 {
-    public class RelayCommand : ICommand
+    public interface IRelayCommand : ICommand
+    {
+        void OnCanExecuteChanged();
+    }
+
+    public class RelayCommand : IRelayCommand
     {
 
         private readonly Action execute;
@@ -15,6 +20,12 @@ namespace Altkom.Bicycle.UWPClient.Commands
         private readonly Func<bool> canExecute;
 
         public event EventHandler CanExecuteChanged;
+
+        public void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
+
 
         public RelayCommand(Action execute, Func<bool> canExecute)
         {
