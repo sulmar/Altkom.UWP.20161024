@@ -15,6 +15,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         public IList<Bike> Bikes { get; set; }
 
+        public Bike SelectedBike { get; set; }
+
         public BikesViewModel()
             : this(new MockBikesService())
         {

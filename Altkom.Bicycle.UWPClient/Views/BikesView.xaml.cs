@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Altkom.Bicycle.UWPClient.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace Altkom.Bicycle.UWPClient.Views
     /// </summary>
     public sealed partial class BikesView : Page
     {
+        public BikesViewModel ViewModel { get; set; } = new BikesViewModel();
+
         public BikesView()
         {
             this.InitializeComponent();
+
+
+
         }
     }
 }

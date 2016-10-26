@@ -6,17 +6,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Altkom.Bicycle.UWPClient.ViewModels"
+    xmlns:c="using:Altkom.Bicycle.UWPClient.Converters"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <vm:BikesViewModel />
-    </Page.DataContext>
 
+    <Page.Resources>
+        <c:NoopConverter x:Key="NoopConverter" />
+    </Page.Resources>
+  
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox ItemsSource="{Binding Bikes}"
+        <ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
                  ItemTemplate="{StaticResource BikeTemplate}"
+                 SelectedItem="{x:Bind ViewModel.SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
+                 
                  />
         
 
