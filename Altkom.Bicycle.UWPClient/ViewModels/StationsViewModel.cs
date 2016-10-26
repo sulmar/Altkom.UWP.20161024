@@ -34,7 +34,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         private readonly IStationsService StationsService;
 
         public StationsViewModel()
-            : this(new MockStationsService())
+            : this(new XmlStationsService())
         {
 
         }
@@ -43,14 +43,16 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         {
             this.StationsService = service;
 
-            Load();
+            // Load();
 
             // SelectedStation = Stations.Last();
         }
 
         public override void Load()
         {
-            Stations = StationsService.GetStations();
+            StationsService.GetStationsAsync();
+
+            // Stations = StationsService.GetStationsAsync();
         }
 
         #region DisplayMapCommand
