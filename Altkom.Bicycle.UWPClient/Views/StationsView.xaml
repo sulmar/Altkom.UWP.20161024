@@ -6,8 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Altkom.Bicycle.UWPClient.ViewModels"
+
     mc:Ignorable="d">
-   
+
+    
 
     <Page.DataContext>
         <vm:StationsViewModel />
@@ -17,6 +19,15 @@
 
 
         <StackPanel>
+
+            <!--<Button x:Name="button1" Content="Load">
+                <Interactivity:Interaction.Behaviors>
+                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=button1}">
+                        <Interactions:InvokeCommandAction Command="{Binding LoadCommand}" />
+                    </Interactions:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>-->
+
             <Button Command="{Binding DisplayMapCommand}">Map</Button>
 
             <ListBox ItemsSource="{Binding Stations}"

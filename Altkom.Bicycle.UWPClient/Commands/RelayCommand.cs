@@ -27,7 +27,7 @@ namespace Altkom.Bicycle.UWPClient.Commands
         }
 
 
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        public RelayCommand(Action execute, Func<bool> canExecute = null)
         {
             this.execute = execute;
             this.canExecute = canExecute;

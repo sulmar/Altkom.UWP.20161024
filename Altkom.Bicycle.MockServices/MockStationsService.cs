@@ -19,6 +19,12 @@ namespace Altkom.Bicycle.MockServices
                 Address = "ul. Chlodna 51",
                 Capacity = 10,
                 Location = new Location { Latitude = 52.01, Longitude = 27.01 },
+                Bikes = new List<Bike>
+                {
+                      new Bike { BikeId = 1, Number = "R001", BikeType = BikeType.City },
+                      new Bike { BikeId = 2, Number = "R002", BikeType = BikeType.Kids },
+                      new Bike { BikeId = 3, Number = "R003", BikeType = BikeType.Tandem },
+                }
             },
 
             new Station {
@@ -27,6 +33,11 @@ namespace Altkom.Bicycle.MockServices
                 Address = "Dworzec Centralny",
                 Capacity = 30,
                 Location = new Location { Latitude = 52.08, Longitude = 27.54 },
+                Bikes = new List<Bike>
+                {
+                  new Bike { BikeId = 4, Number = "R004", BikeType = BikeType.City },
+                   new Bike { BikeId = 5, Number = "R005", BikeType = BikeType.City },
+                }
             },
 
             new Station {

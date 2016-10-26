@@ -48,6 +48,21 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             // SelectedStation = Stations.Last();
         }
 
+        private ICommand _LoadCommand;
+
+        public ICommand LoadCommand
+        {
+            get
+            {
+                if (_LoadCommand==null)
+                {
+                    _LoadCommand = new RelayCommand(Load);
+                }
+
+                return _LoadCommand;
+            }
+        }
+
         public override void Load()
         {
             StationsService.GetStationsAsync();

@@ -45,6 +45,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockBikesService.cs" />
     <Compile Include="MockStationsService.cs" />
     <Compile Include="MockUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

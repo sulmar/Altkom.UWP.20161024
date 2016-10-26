@@ -14,5 +14,7 @@ namespace Altkom.Bicycle.Models
         public BikeType BikeType { get; set; }
 
         public DateTime StartWorkDate { get; set; }
+
+        
     }
 }

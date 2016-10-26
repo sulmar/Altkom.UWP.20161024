@@ -17,5 +17,6 @@ namespace Altkom.Bicycle.Interfaces
 
         Task<Station> FindNearestStationAsync(Location location);
 
+
     }
 }
