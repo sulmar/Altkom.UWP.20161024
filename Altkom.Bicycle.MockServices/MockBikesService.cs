@@ -19,6 +19,11 @@ namespace Altkom.Bicycle.MockServices
             new Bike { BikeId = 5, Number = "R005", BikeType = BikeType.City, StartWorkDate = DateTime.Parse("2015-08-14") },
         };
 
+        public Bike GetBike(int bikeId)
+        {
+            return _Bikes.SingleOrDefault(b => b.BikeId == bikeId);
+        }
+
         public IList<Bike> GetBikes()
         {
             return _Bikes;

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Bicycle.Interfaces",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Bicycle.MockServices", "Altkom.Bicycle.MockServices\Altkom.Bicycle.MockServices.csproj", "{35F479DD-943F-4352-A152-81868D313CEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Bicycle.Service", "Altkom.Bicycle.Service\Altkom.Bicycle.Service.csproj", "{713DC2C8-3AE1-4348-AF27-4F1176756DE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,22 @@ Global
 		{35F479DD-943F-4352-A152-81868D313CEE}.Release|x64.Build.0 = Release|Any CPU
 		{35F479DD-943F-4352-A152-81868D313CEE}.Release|x86.ActiveCfg = Release|Any CPU
 		{35F479DD-943F-4352-A152-81868D313CEE}.Release|x86.Build.0 = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|x64.Build.0 = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Debug|x86.Build.0 = Debug|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|ARM.Build.0 = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|x64.ActiveCfg = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|x64.Build.0 = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{713DC2C8-3AE1-4348-AF27-4F1176756DE7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
