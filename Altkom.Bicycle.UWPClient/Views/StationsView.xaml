@@ -9,6 +9,7 @@
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:Altkom.Bicycle.UWPClient.Converters"
+    xmlns:b="using:Altkom.Bicycle.UWPClient.Behaviors"    
     mc:Ignorable="d">
 
     <i:Interaction.Behaviors>
@@ -26,14 +27,30 @@
    
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        
+        
 
+        <TextBlock Text="Loading..." HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   
+                   />
 
         <StackPanel>
 
-            <Button Command="{Binding DisplayMapCommand}">Map</Button>
+            <Button Content="Map">
+                <i:Interaction.Behaviors>
+                    <b:EventToCommandBehavior Command="{Binding DisplayMapCommand}" />
+                </i:Interaction.Behaviors>
 
+            </Button>
 
-            
+            <Button Content="Map 2">
+                <i:Interaction.Behaviors>
+                    <b:EventToCommandBehavior  Command="{Binding DisplayMapCommand}" />
+                </i:Interaction.Behaviors>
+
+            </Button>
 
             <ListBox ItemsSource="{Binding Stations}"
                      SelectedItem="{Binding SelectedStation, Mode=TwoWay}"
