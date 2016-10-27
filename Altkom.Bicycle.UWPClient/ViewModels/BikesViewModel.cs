@@ -53,7 +53,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         {
             this.Service = service;
 
-            // Load();
+             Load();
         }
 
         public override void Load()

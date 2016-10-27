@@ -50,9 +50,7 @@
 
 
         <ProgressRing IsActive="{Binding IsBusy}" 
-                      Width="100" Height="100"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
+                  
                       />
 
     </Grid>

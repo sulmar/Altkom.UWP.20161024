@@ -9,11 +9,25 @@
     xmlns:c="using:Altkom.Bicycle.UWPClient.Converters"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:model="using:Altkom.Bicycle.Models"
     mc:Ignorable="d">
 
 
     <Page.Resources>
         <c:NoopConverter x:Key="NoopConverter" />
+
+
+        <DataTemplate x:Key="BikeTemplate" x:DataType="model:Bike">
+            <StackPanel>
+                <TextBlock Text="{x:Bind Number}" />
+                <TextBlock Text="{x:Bind StartWorkDate}" />
+                
+                <!--<TextBlock Text="{x:Bind StartWorkDate, 
+                Converter={StaticResource MyDateTimeConverter},
+                ConverterParameter='dd-MM-yyyy HH:mm'}" />-->
+            </StackPanel>
+        </DataTemplate>
+        
     </Page.Resources>
 
     <i:Interaction.Behaviors>
@@ -26,17 +40,11 @@
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox ItemsSource="{Binding Bikes}"
-                 ItemTemplate="{StaticResource BikeTemplate}"
-                 SelectedItem="{Binding SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
-                 
-                 />
-
-        <!--<ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
+        <ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
                  ItemTemplate="{StaticResource BikeTemplate}"
                  SelectedItem="{x:Bind ViewModel.SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
                  
-                 />-->
+                 />
 
     </Grid>
 </Page>

@@ -23,13 +23,13 @@ namespace Altkom.Bicycle.UWPClient.Views
     /// </summary>
     public sealed partial class BikesView : Page
     {
-        // public BikesViewModel ViewModel { get; set; } = new BikesViewModel();
+        public BikesViewModel ViewModel { get; set; } = new BikesViewModel();
 
         public BikesView()
         {
             this.InitializeComponent();
 
-            this.DataContext = new BikesViewModel();
+            // this.DataContext = new BikesViewModel();
 
         }
     }

@@ -8,14 +8,14 @@
     <converters:StringFormatConverter x:Key="MyDateTimeConverter" />
 
 
-    <DataTemplate x:Key="BikeTemplate">
+    <!--<DataTemplate x:Key="BikeTemplate" >
         <StackPanel>
             <TextBlock Text="{Binding Number}" />
             <TextBlock Text="{Binding StartWorkDate, 
                 Converter={StaticResource MyDateTimeConverter},
                 ConverterParameter='dd-MM-yyyy HH:mm'}" />
         </StackPanel>
-    </DataTemplate>
+    </DataTemplate>-->
 
     <DataTemplate x:Key="StationTemplate">
         <Grid>
