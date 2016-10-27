@@ -9,9 +9,31 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 {
     public class StationsViewModel : BaseViewModel
     {
+
+        #region IsBusy
+
+        private bool _IsBusy;
+
+        public bool IsBusy
+        {
+            get { return _IsBusy; }
+            set
+            {
+                _IsBusy = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
         private IList<Station> _Stations;
-        public IList<Station> Stations { get { return _Stations; }
-        set
+        public IList<Station> Stations
+        {
+            get
+            {
+                return _Stations;
+            }
+            set
             {
                 _Stations = value;
 
@@ -51,6 +73,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             // SelectedStation = Stations.Last();
         }
 
+        #region LoadCommand
+
         private ICommand _LoadCommand;
 
         public ICommand LoadCommand
@@ -66,11 +90,17 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             }
         }
 
+        #endregion
+
         public async override void Load()
         {
+            IsBusy = true; 
+
             Stations = await StationsService.GetStationsAsync();
 
-            // Stations = StationsService.GetStationsAsync();
+            IsBusy = false;
+
+            // textbox1.Text = await CalculateAsync(Stations);
         }
 
         #region DisplayMapCommand
