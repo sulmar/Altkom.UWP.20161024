@@ -2,18 +2,22 @@
 using Altkom.Bicycle.MockServices;
 using Altkom.Bicycle.Models;
 using Altkom.Bicycle.UWPClient.Commands;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
     public class StationsViewModel : BaseViewModel
     {
-        public IList<Station> Stations { get; set; }
+        private IList<Station> _Stations;
+        public IList<Station> Stations { get { return _Stations; }
+        set
+            {
+                _Stations = value;
+
+                OnPropertyChanged();
+            }
+        }
 
         #region SelectedStation
 
@@ -44,7 +48,6 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             this.StationsService = service;
 
             // Load();
-
             // SelectedStation = Stations.Last();
         }
 
@@ -63,9 +66,9 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             }
         }
 
-        public override void Load()
+        public async override void Load()
         {
-            StationsService.GetStationsAsync();
+            Stations = await StationsService.GetStationsAsync();
 
             // Stations = StationsService.GetStationsAsync();
         }
@@ -92,6 +95,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         public void DisplayMap()
         {
             // TODO: Display map
+
         }
 
         public bool CanDisplayMap()

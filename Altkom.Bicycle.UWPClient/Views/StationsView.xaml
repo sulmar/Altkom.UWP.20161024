@@ -6,29 +6,34 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Altkom.Bicycle.UWPClient.ViewModels"
-
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:converters="using:Altkom.Bicycle.UWPClient.Converters"
     mc:Ignorable="d">
 
-    
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </core:EventTriggerBehavior>
+
+    </i:Interaction.Behaviors>
+
 
     <Page.DataContext>
         <vm:StationsViewModel />
     </Page.DataContext>
+
+   
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
         <StackPanel>
 
-            <!--<Button x:Name="button1" Content="Load">
-                <Interactivity:Interaction.Behaviors>
-                    <Interactions:EventTriggerBehavior EventName="Click" SourceObject="{Binding ElementName=button1}">
-                        <Interactions:InvokeCommandAction Command="{Binding LoadCommand}" />
-                    </Interactions:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </Button>-->
-
             <Button Command="{Binding DisplayMapCommand}">Map</Button>
+
+
+            
 
             <ListBox ItemsSource="{Binding Stations}"
                      SelectedItem="{Binding SelectedStation, Mode=TwoWay}"

@@ -7,22 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Altkom.Bicycle.UWPClient.ViewModels"
     xmlns:c="using:Altkom.Bicycle.UWPClient.Converters"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
 
     <Page.Resources>
         <c:NoopConverter x:Key="NoopConverter" />
     </Page.Resources>
+
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </core:EventTriggerBehavior>        
+        
+    </i:Interaction.Behaviors>
   
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
+        <ListBox ItemsSource="{Binding Bikes}"
+                 ItemTemplate="{StaticResource BikeTemplate}"
+                 SelectedItem="{Binding SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
+                 
+                 />
+
+        <!--<ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
                  ItemTemplate="{StaticResource BikeTemplate}"
                  SelectedItem="{x:Bind ViewModel.SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
                  
-                 />
-        
+                 />-->
 
     </Grid>
 </Page>
