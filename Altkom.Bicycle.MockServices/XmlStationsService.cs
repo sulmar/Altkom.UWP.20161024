@@ -76,7 +76,6 @@ namespace Altkom.Bicycle.MockServices
                 
             });
 
-            return stations.ToList();
 
         }
     }

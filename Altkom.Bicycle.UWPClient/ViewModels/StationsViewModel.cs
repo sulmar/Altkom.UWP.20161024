@@ -90,6 +90,9 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             }
         }
 
+
+      
+
         #endregion
 
         public async override void Load()
@@ -99,8 +102,6 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             Stations = await StationsService.GetStationsAsync();
 
             IsBusy = false;
-
-            // textbox1.Text = await CalculateAsync(Stations);
         }
 
         #region DisplayMapCommand

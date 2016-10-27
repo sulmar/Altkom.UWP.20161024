@@ -23,12 +23,26 @@ namespace Altkom.Bicycle.UWPClient.Views
     /// </summary>
     public sealed partial class StationsView : Page
     {
+
+        public StationsViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as StationsViewModel;
+            }
+        }
+                
         public StationsView()
         {
             this.InitializeComponent();
 
 
             //this.DataContext = new ViewModels.StationsViewModel();
+        }
+
+        public void OnLoaded()
+        {
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

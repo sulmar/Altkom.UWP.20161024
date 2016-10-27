@@ -10,6 +10,7 @@
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:model="using:Altkom.Bicycle.Models"
+    
     mc:Ignorable="d">
 
 
