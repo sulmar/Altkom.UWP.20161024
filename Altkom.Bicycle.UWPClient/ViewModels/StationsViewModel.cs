@@ -3,7 +3,9 @@ using Altkom.Bicycle.MockServices;
 using Altkom.Bicycle.Models;
 using Altkom.Bicycle.UWPClient.Commands;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using System;
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
@@ -26,6 +28,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         #endregion
 
+        #region Stations
+
         private IList<Station> _Stations;
         public IList<Station> Stations
         {
@@ -40,6 +44,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        #endregion
 
         #region SelectedStation
 
@@ -56,6 +62,23 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         }
 
         #endregion
+
+        #region CurrentLocation
+
+        private Location _CurrentLocation;
+        public Location CurrentLocation
+        {
+            get { return _CurrentLocation; }
+
+            set
+            {
+                _CurrentLocation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
 
         private readonly IStationsService StationsService;
 
@@ -97,9 +120,13 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         public async override void Load()
         {
-            IsBusy = true; 
+            var IsLoaded = false;
 
+            IsBusy = true;
+           
             Stations = await StationsService.GetStationsAsync();
+
+            await Find();
 
             IsBusy = false;
         }
@@ -132,6 +159,18 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         public bool CanDisplayMap()
         {
            return SelectedStation != null;
+        }
+
+        public async Task Find()
+        {
+            var geolocator = new Windows.Devices.Geolocation.Geolocator();
+            var position = await geolocator.GetGeopositionAsync();
+
+            CurrentLocation = new Location
+            {
+                Latitude = position.Coordinate.Point.Position.Latitude,
+                Longitude = position.Coordinate.Point.Position.Longitude,
+            };
         }
             
     }

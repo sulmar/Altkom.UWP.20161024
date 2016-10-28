@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\LocationConverter.cs" />
     <Compile Include="Converters\NoopConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +110,9 @@
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\BikesView.xaml.cs">
       <DependentUpon>BikesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapStationsView.xaml.cs">
+      <DependentUpon>MapStationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StationsView.xaml.cs">
       <DependentUpon>StationsView.xaml</DependentUpon>
@@ -149,6 +153,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Views\BikesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MapStationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
