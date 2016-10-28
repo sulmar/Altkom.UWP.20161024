@@ -153,7 +153,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            rootFrame.Navigate(typeof(Views.MapStationsView));
+            rootFrame.Navigate(typeof(Views.MapStationsView), this.User);
         }
 
     }
