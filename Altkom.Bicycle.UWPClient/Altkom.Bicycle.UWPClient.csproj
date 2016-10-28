@@ -141,7 +141,9 @@
   <ItemGroup>
     <Content Include="Presentations\Binding.png" />
     <Content Include="Presentations\ekran.png" />
+    <Content Include="Presentations\machinestate.png" />
     <Content Include="Presentations\mvvm.png" />
+    <Content Include="Presentations\nagivation.png" />
     <Content Include="Presentations\tasks.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
