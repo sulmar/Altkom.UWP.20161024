@@ -95,6 +95,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="Presentations\UWP.pdf" />
     <None Include="project.json" />
     <PRIResource Include="Strings\fr\Resources.resw" />
     <PRIResource Include="Strings\pl\Resources.resw" />
@@ -138,6 +139,10 @@
     <None Include="Altkom.Bicycle.UWPClient_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Presentations\Binding.png" />
+    <Content Include="Presentations\ekran.png" />
+    <Content Include="Presentations\mvvm.png" />
+    <Content Include="Presentations\tasks.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
