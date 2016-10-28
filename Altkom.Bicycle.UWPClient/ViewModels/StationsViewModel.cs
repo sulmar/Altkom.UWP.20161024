@@ -120,8 +120,6 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         public async override void Load()
         {
-            var IsLoaded = false;
-
             IsBusy = true;
            
             Stations = await StationsService.GetStationsAsync();

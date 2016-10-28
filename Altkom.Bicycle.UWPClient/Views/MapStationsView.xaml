@@ -10,6 +10,7 @@
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     xmlns:model="using:Altkom.Bicycle.Models"
     xmlns:c="using:Altkom.Bicycle.UWPClient.Converters"
+    xmlns:t="using:WindowsStateTriggers"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -20,16 +21,43 @@
         <core:EventTriggerBehavior EventName="Loaded">
             <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
         </core:EventTriggerBehavior>
-
     </i:Interaction.Behaviors>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        
-        <!--<ListBox 
-            ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}" />-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Landscape">
+                    <VisualState.StateTriggers>
+                        <t:OrientationStateTrigger Orientation="Landscape" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Map.Visibility" Value="Visible" />
+                        <Setter Target="StationsList.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
 
-        <maps:MapControl ZoomLevel="15"
+                <VisualState x:Name="Portrait">
+                    <VisualState.StateTriggers>
+                        <t:OrientationStateTrigger Orientation="Portrait" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Map.Visibility" Value="Collapsed" />
+                        <Setter Target="StationsList.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+            <ListBox x:Name="StationsList"
+            ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}" />
+
+        <maps:MapControl 
+            x:Name="Map"
+            ZoomLevel="15"
             Center="{x:Bind ViewModel.CurrentLocation, Converter={StaticResource LocationConverter}, Mode=OneWay}">
             <maps:MapItemsControl ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}">
                 <maps:MapItemsControl.ItemTemplate>
