@@ -20,6 +20,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Command="{Binding SaveUserCommand}">Save</Button>
                 <Button Command="{Binding GenerateIdentifierCommand}">Generate Id</Button>
+                <Button Command="{Binding CallCommand}">Call</Button>
             </StackPanel>
             
             <!-- Fields -->
@@ -27,6 +28,7 @@
                 <TextBox Header="Imię" Text="{Binding FirstName, Mode=TwoWay}" />
                 <TextBox Header="Nazwisko" Text="{Binding LastName, Mode=TwoWay}" />
                 <TextBox Header="Identyfikator" Text="{Binding Identifier, Mode=TwoWay}" />
+                <TextBlock Text="{Binding PhoneNumber}" />
 
                 <TextBlock Text="{Binding FullName, Mode=OneWay}" />
             </StackPanel>

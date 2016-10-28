@@ -55,6 +55,10 @@ namespace Altkom.Bicycle.Models
             }
         }
 
+
+        public string PhoneNumber { get; set; }
+
+
         public bool IsActive { get; set; }
 
         // C# 6.0

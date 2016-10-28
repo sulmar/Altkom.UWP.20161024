@@ -17,6 +17,7 @@ namespace Altkom.Bicycle.MockServices
                 FirstName = "Marcin",
                 LastName = "Sulecki",
                 Identifier = "12345",
+                PhoneNumber = "555-000-111",
                 IsActive = true,
                 }
         };

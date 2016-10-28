@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Calls;
+using Windows.Foundation.Metadata;
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
@@ -30,6 +32,39 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
                 return _SaveUserCommand;
             }
+        }
+
+        #endregion
+
+
+        #region CallCommand
+
+        private ICommand _CallCommand;
+
+        public ICommand CallCommand
+        {
+            get
+            {
+                if (_CallCommand == null)
+                    _CallCommand = new RelayCommand(Call, CanCall);
+
+                return _CallCommand;
+            }
+
+        }
+
+        public void Call()
+        {
+            if (ApiInformation.IsTypePresent("Windows.ApplicationModel.Calls.PhoneCallManager"))
+            {
+                PhoneCallManager.ShowPhoneCallUI(User.PhoneNumber, User.FullName);
+            }
+        }
+
+
+        public bool CanCall()
+        {
+            return ApiInformation.IsTypePresent("Windows.ApplicationModel.Calls.PhoneCallManager");
         }
 
         #endregion
