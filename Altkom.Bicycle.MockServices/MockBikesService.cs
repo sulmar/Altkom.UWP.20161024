@@ -33,5 +33,10 @@ namespace Altkom.Bicycle.MockServices
         {
             return Task<IList<Bike>>.Run(() => GetBikes());
         }
+
+        public Task<Bike> GetBikesAsync(int bikeId)
+        {
+            return Task.Run(() => GetBike(bikeId));
+        }
     }
 }

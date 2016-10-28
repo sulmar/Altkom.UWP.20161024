@@ -14,5 +14,7 @@ namespace Altkom.Bicycle.Interfaces
         Task<IList<Bike>> GetBikesAsync();
 
         Bike GetBike(int bikeId);
+
+        Task<Bike> GetBikesAsync(int bikeId);
     }
 }

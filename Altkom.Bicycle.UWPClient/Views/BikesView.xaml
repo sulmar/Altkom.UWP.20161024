@@ -33,15 +33,14 @@
 
     <i:Interaction.Behaviors>
         <core:EventTriggerBehavior EventName="Loaded">
-            <core:InvokeCommandAction Command="{Binding LoadCommand}" />
+            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
         </core:EventTriggerBehavior>        
-        
     </i:Interaction.Behaviors>
   
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox ItemsSource="{x:Bind ViewModel.Bikes}"
+        <ListBox ItemsSource="{x:Bind ViewModel.Bikes, Mode=OneWay}"
                  ItemTemplate="{StaticResource BikeTemplate}"
                  SelectedItem="{x:Bind ViewModel.SelectedBike, Mode=TwoWay, Converter={StaticResource NoopConverter}}"
                  

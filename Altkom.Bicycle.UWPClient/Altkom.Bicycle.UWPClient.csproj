@@ -100,6 +100,9 @@
     <Compile Include="Converters\NoopConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestServices\RestBaseService.cs" />
+    <Compile Include="RestServices\RestBikesService.cs" />
+    <Compile Include="RestServices\RestStationsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BikesViewModel.cs" />
     <Compile Include="ViewModels\StationsViewModel.cs" />

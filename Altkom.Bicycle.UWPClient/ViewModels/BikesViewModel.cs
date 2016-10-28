@@ -2,6 +2,7 @@
 using Altkom.Bicycle.MockServices;
 using Altkom.Bicycle.Models;
 using Altkom.Bicycle.UWPClient.Commands;
+using Altkom.Bicycle.UWPClient.RestServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         public Bike SelectedBike { get; set; }
 
+        #region LoadCommand
+
         private ICommand _LoadCommand;
 
         public ICommand LoadCommand
@@ -43,22 +46,19 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             }
         }
 
+        #endregion
+
         public BikesViewModel()
-            : this(new MockBikesService())
-        {
-            
-        }
+            : this(new RestBikesService()) {}
 
         public BikesViewModel(IBikesService service)
         {
             this.Service = service;
-
-             Load();
         }
 
-        public override void Load()
+        public async override void Load()
         {
-            Bikes = Service.GetBikes();
+               Bikes = await Service.GetBikesAsync();
         }
     }
 }
