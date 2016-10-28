@@ -26,5 +26,7 @@ namespace Altkom.Bicycle.UWPClient.Views
         {
             this.InitializeComponent();
         }
+
+
     }
 }

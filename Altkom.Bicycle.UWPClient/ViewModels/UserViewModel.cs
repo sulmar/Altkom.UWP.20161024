@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Calls;
 using Windows.Foundation.Metadata;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
@@ -127,6 +129,32 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         }
 
         public bool CanGenerateIdentifier() => true;
+
+        #region DisplayMapCommand
+
+        private ICommand _DisplayMapCommand;
+
+        public ICommand DisplayMapCommand
+        {
+            get
+            {
+                if (_DisplayMapCommand == null)
+                    _DisplayMapCommand = new RelayCommand(DisplayMap);
+
+                return _DisplayMapCommand;
+            }
+
+        }
+
+        #endregion
+
+
+        public void DisplayMap()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            rootFrame.Navigate(typeof(Views.MapStationsView));
+        }
 
     }
 }

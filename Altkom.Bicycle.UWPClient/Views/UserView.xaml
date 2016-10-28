@@ -55,6 +55,8 @@
                         Visibility="Collapsed"
                         Content="Call">
                 </Button>
+
+                <Button Command="{Binding DisplayMapCommand}" Content="Map" />
             </StackPanel>
             
             <!-- Fields -->

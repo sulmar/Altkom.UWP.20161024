@@ -31,6 +31,13 @@ namespace Altkom.Bicycle.UWPClient
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            this.Resuming += App_Resuming;
+            
+        }
+
+        private void App_Resuming(object sender, object e)
+        {
+            
         }
 
         /// <summary>
@@ -73,7 +80,9 @@ namespace Altkom.Bicycle.UWPClient
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MapStationsView), e.Arguments);
+                    rootFrame.Navigate(typeof(UserView), e.Arguments);
+
+                    
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
