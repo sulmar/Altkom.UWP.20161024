@@ -6,13 +6,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Altkom.Bicycle.UWPClient.ViewModels"
+    xmlns:t="using:Altkom.Bicycle.UWPClient.Triggers"
+    RequestedTheme="Light"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <vm:UserViewModel />
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="Gsm">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <!-- warunek -->
+                        <t:ApiInformationTrigger 
+                            Type="Windows.ApplicationModel.Calls.PhoneCallManager" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CallButton.Visibility" Value="Visible" />
+                        <Setter Target="RootGrid.Background" Value="Blue" />
+                    </VisualState.Setters>
+                        
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <StackPanel>
 
@@ -20,7 +39,10 @@
             <StackPanel Orientation="Horizontal">
                 <Button Command="{Binding SaveUserCommand}">Save</Button>
                 <Button Command="{Binding GenerateIdentifierCommand}">Generate Id</Button>
-                <Button Command="{Binding CallCommand}">Call</Button>
+                <Button x:Name="CallButton" Command="{Binding CallCommand}" 
+                        Visibility="Collapsed"
+                        Content="Call">
+                </Button>
             </StackPanel>
             
             <!-- Fields -->
