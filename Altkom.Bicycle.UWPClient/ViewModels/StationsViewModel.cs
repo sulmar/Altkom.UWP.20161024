@@ -97,6 +97,19 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
         #endregion
 
 
+        private IList<string> _Cities;
+
+        public IList<string> Cities
+        {
+            get { return _Cities; }
+            set
+            {
+                _Cities = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         private readonly IStationsService StationsService;
 
@@ -143,6 +156,7 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             Stations = await StationsService.GetStationsAsync();
 
             GetGroupStations();
+            GetCities();
 
             await Find();
 
@@ -203,6 +217,11 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
                 })
                 .ToList();
 
+        }
+
+        public void GetCities()
+        {
+            Cities = GroupStations.Select(s => s.City).ToList();
         }
 
 

@@ -60,24 +60,43 @@
             <!--<ListBox x:Name="StationsList"
             ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}" />-->
 
-        <ListView x:Name="StationsList" 
+
+        <SemanticZoom ScrollViewer.ZoomMode="Enabled">
+
+            <SemanticZoom.ZoomedInView>
+                <ListView x:Name="StationsList" 
                   ItemsSource="{Binding Source={StaticResource Collection}}"
                   ItemTemplate="{StaticResource StationTemplate}">
-            <ListView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding City}"
+                    <ListView.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding City}"
                                        FontWeight="Bold"
                                        Foreground="Blue"
                                        />
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
-                </GroupStyle>
-            </ListView.GroupStyle>
-                
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
 
-        </ListView>
+
+                </ListView>
+            </SemanticZoom.ZoomedInView>
+
+            <SemanticZoom.ZoomedOutView>
+                <ListView ItemsSource="{x:Bind ViewModel.Cities, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SemanticZoom.ZoomedOutView>
+
+        </SemanticZoom>
+        
+      
 
         <maps:MapControl 
             x:Name="Map"
