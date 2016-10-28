@@ -17,6 +17,19 @@
     <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <VisualStateManager.VisualStateGroups>
+
+            <VisualStateGroup x:Name="WindowState">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootGrid.Background" Value="Green" />
+                        <Setter Target="FieldsPanel.Orientation" Value="Horizontal" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            
             <VisualStateGroup x:Name="Gsm">
                 <VisualState>
                     <VisualState.StateTriggers>
@@ -26,7 +39,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="CallButton.Visibility" Value="Visible" />
-                        <Setter Target="RootGrid.Background" Value="Blue" />
                     </VisualState.Setters>
                         
                 </VisualState>
@@ -36,7 +48,7 @@
         <StackPanel>
 
             <!-- Buttons -->
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="ButtonsPanel" Orientation="Horizontal">
                 <Button Command="{Binding SaveUserCommand}">Save</Button>
                 <Button Command="{Binding GenerateIdentifierCommand}">Generate Id</Button>
                 <Button x:Name="CallButton" Command="{Binding CallCommand}" 
@@ -46,7 +58,9 @@
             </StackPanel>
             
             <!-- Fields -->
-            <StackPanel DataContext="{Binding User}">
+            <StackPanel  x:Name="FieldsPanel" Orientation="Vertical"
+                         
+                         DataContext="{Binding User}">
                 <TextBox Header="Imię" Text="{Binding FirstName, Mode=TwoWay}" />
                 <TextBox Header="Nazwisko" Text="{Binding LastName, Mode=TwoWay}" />
                 <TextBox Header="Identyfikator" Text="{Binding Identifier, Mode=TwoWay}" />
