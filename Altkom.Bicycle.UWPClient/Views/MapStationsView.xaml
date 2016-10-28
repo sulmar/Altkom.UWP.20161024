@@ -15,6 +15,11 @@
 
     <Page.Resources>
         <c:LocationConverter x:Key="LocationConverter" />
+
+        <CollectionViewSource x:Name="Collection"
+                              IsSourceGrouped="True"
+                              ItemsPath="Stations"
+                              Source="{x:Bind ViewModel.GroupStations, Mode=OneWay}"/>
     </Page.Resources>
 
     <i:Interaction.Behaviors>
@@ -52,8 +57,27 @@
         </VisualStateManager.VisualStateGroups>
 
 
-            <ListBox x:Name="StationsList"
-            ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}" />
+            <!--<ListBox x:Name="StationsList"
+            ItemsSource="{x:Bind ViewModel.Stations, Mode=OneWay}" />-->
+
+        <ListView x:Name="StationsList" 
+                  ItemsSource="{Binding Source={StaticResource Collection}}"
+                  ItemTemplate="{StaticResource StationTemplate}">
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding City}"
+                                       FontWeight="Bold"
+                                       Foreground="Blue"
+                                       />
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+                
+
+        </ListView>
 
         <maps:MapControl 
             x:Name="Map"

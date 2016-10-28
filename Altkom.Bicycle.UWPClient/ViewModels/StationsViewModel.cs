@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System;
+using System.Linq;
+
 
 namespace Altkom.Bicycle.UWPClient.ViewModels
 {
@@ -79,6 +81,22 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
 
         #endregion
 
+        #region GroupStations
+
+        private IList<GroupStation> _GroupStation;
+
+        public IList<GroupStation> GroupStations
+        {
+            get { return _GroupStation; }
+            set {
+                _GroupStation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
+
 
         private readonly IStationsService StationsService;
 
@@ -123,6 +141,8 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
             IsBusy = true;
            
             Stations = await StationsService.GetStationsAsync();
+
+            GetGroupStations();
 
             await Find();
 
@@ -170,6 +190,21 @@ namespace Altkom.Bicycle.UWPClient.ViewModels
                 Longitude = position.Coordinate.Point.Position.Longitude,
             };
         }
-            
+
+
+        public void GetGroupStations()
+        {
+            GroupStations = Stations
+                .GroupBy(s => s.City)
+                .Select(g => new GroupStation
+                    {
+                        City = g.Key,
+                        Stations = g.ToList()
+                })
+                .ToList();
+
+        }
+
+
     }
 }

@@ -49,7 +49,7 @@ namespace Altkom.Bicycle.MockServices
                 .Descendants("country")
                 .Where(item => item.Attribute("country_name").Value == country)
                 .Descendants("city")
-                .Where(item => item.Attribute("name").Value == city)
+                //.Where(item => item.Attribute("name").Value == city)
                 .Descendants("place")
                 .Select(item => new
                 {
@@ -59,6 +59,7 @@ namespace Altkom.Bicycle.MockServices
                     Latitude = item.Attribute("lat").Value,
                     Longitude = item.Attribute("lng").Value,
                     Capacity = item.Attribute("bike_racks").Value,
+                    City = item.Parent.Attribute("name").Value,
                 });
 
 
@@ -68,6 +69,7 @@ namespace Altkom.Bicycle.MockServices
                 Name = s.Name,
                 Address = s.Name,
                 Capacity = short.Parse(s.Capacity, CultureInfo.InvariantCulture),
+                City = s.City,
                 Location = new Location
                 {
                     Latitude = double.Parse(s.Latitude, CultureInfo.InvariantCulture),

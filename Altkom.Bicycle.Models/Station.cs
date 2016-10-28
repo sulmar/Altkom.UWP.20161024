@@ -18,6 +18,8 @@ namespace Altkom.Bicycle.Models
 
         public Location Location { get; set; }
 
+        public string City { get; set; }
+
         public IList<Bike> Bikes { get; set; }
 
 

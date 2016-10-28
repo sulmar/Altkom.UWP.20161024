@@ -40,6 +40,7 @@
     <Compile Include="Base.cs" />
     <Compile Include="Bike.cs" />
     <Compile Include="BikeType.cs" />
+    <Compile Include="GroupStation.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rental.cs" />
