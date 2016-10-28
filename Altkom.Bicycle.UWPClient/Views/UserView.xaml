@@ -63,8 +63,8 @@
             <StackPanel  x:Name="FieldsPanel" Orientation="Vertical"
                          
                          DataContext="{Binding User}">
-                <TextBox Header="Imię" Text="{Binding FirstName, Mode=TwoWay}" />
-                <TextBox Header="Nazwisko" Text="{Binding LastName, Mode=TwoWay}" />
+                <TextBox x:Uid="FirstName" Header="Imię" Text="{Binding FirstName, Mode=TwoWay}" />
+                <TextBox x:Uid="LastName" Header="Nazwisko" Text="{Binding LastName, Mode=TwoWay}" />
                 <TextBox Header="Identyfikator" Text="{Binding Identifier, Mode=TwoWay}" />
                 <TextBlock Text="{Binding PhoneNumber}" />
 
