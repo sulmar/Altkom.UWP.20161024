@@ -115,11 +115,15 @@
     <Compile Include="RestServices\RestBikesService.cs" />
     <Compile Include="RestServices\RestStationsService.cs" />
     <Compile Include="Triggers\ApiInformationTrigger.cs" />
+    <Compile Include="Triggers\BatteryTrigger.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BikesViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\StationsViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\BateryView.xaml.cs">
+      <DependentUpon>BateryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BikesView.xaml.cs">
       <DependentUpon>BikesView.xaml</DependentUpon>
     </Compile>
@@ -172,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\BateryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BikesView.xaml">
       <SubType>Designer</SubType>
