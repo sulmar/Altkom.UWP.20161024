@@ -18,6 +18,18 @@
           <source>10</source>
           <target state="translated">50</target>
         </trans-unit>
+        <trans-unit id="IsActive.Header" translate="yes" xml:space="preserve">
+          <source>Is active</source>
+          <target state="new">Is active</target>
+        </trans-unit>
+        <trans-unit id="IsActive.OffContent" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="new">Off</target>
+        </trans-unit>
+        <trans-unit id="IsActive.OnContent" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="new">On</target>
+        </trans-unit>
       </group>
     </body>
   </file>

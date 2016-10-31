@@ -123,6 +123,15 @@
   <data name="FirstName.Width" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="IsActive.Header" xml:space="preserve">
+    <value>Is active</value>
+  </data>
+  <data name="IsActive.OffContent" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="IsActive.OnContent" xml:space="preserve">
+    <value>On</value>
+  </data>
   <data name="LastName.Header" xml:space="preserve">
     <value>Lastname</value>
   </data>

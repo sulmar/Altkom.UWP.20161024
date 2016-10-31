@@ -117,6 +117,7 @@
     <Compile Include="Triggers\ApiInformationTrigger.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BikesViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\StationsViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\BikesView.xaml.cs">
@@ -124,6 +125,9 @@
     </Compile>
     <Compile Include="Views\MapStationsView.xaml.cs">
       <DependentUpon>MapStationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StationsView.xaml.cs">
       <DependentUpon>StationsView.xaml</DependentUpon>
@@ -172,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MapStationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
