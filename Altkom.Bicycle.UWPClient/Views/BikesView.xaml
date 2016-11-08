@@ -18,16 +18,12 @@
         <c:NoopConverter x:Key="NoopConverter" />
 
 
-        <DataTemplate x:Key="BikeTemplate" x:DataType="model:Bike">
+        <!--<DataTemplate x:Key="BikeTemplate" x:DataType="model:Bike">
             <StackPanel>
                 <TextBlock Text="{x:Bind Number}" />
                 <TextBlock Text="{x:Bind StartWorkDate}" />
-                
-                <!--<TextBlock Text="{x:Bind StartWorkDate, 
-                Converter={StaticResource MyDateTimeConverter},
-                ConverterParameter='dd-MM-yyyy HH:mm'}" />-->
             </StackPanel>
-        </DataTemplate>
+        </DataTemplate>-->
         
     </Page.Resources>
 

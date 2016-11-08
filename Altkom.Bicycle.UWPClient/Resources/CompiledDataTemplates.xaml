@@ -1,0 +1,14 @@
+﻿<ResourceDictionary
+    x:Class="Altkom.Bicycle.UWPClient.Resources.CompiledDataTemplates"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:Altkom.Bicycle.Models">
+
+    <DataTemplate x:Key="BikeTemplate" x:DataType="model:Bike">
+        <StackPanel>
+            <TextBlock Text="{x:Bind Number}" />
+            <TextBlock Text="{x:Bind StartWorkDate}" />
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

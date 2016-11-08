@@ -111,6 +111,7 @@
     <Compile Include="Converters\NoopConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\CompiledDataTemplates.cs" />
     <Compile Include="RestServices\RestBaseService.cs" />
     <Compile Include="RestServices\RestBikesService.cs" />
     <Compile Include="RestServices\RestStationsService.cs" />
@@ -167,6 +168,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Resources\CompiledDataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

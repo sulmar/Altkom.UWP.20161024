@@ -80,7 +80,7 @@ namespace Altkom.Bicycle.UWPClient
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(BateryView), e.Arguments);
+                    rootFrame.Navigate(typeof(BikesView), e.Arguments);
 
                     
                 }
